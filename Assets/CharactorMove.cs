@@ -117,7 +117,7 @@ public class CharactorMove : MonoBehaviour
             {
                 if ( Stamina_Bar.value > 0)
                 {
-                    MovePower = 50f;
+                    MovePower = 60f;
                     Stamina_Bar.value -= 0.0012f;
                     recoverStaminaTime = 0;
                 }
@@ -212,6 +212,13 @@ public class CharactorMove : MonoBehaviour
 
     }
 
+    private void OnCollisionEnter(Collision coll)
+    {
+        if (coll.gameObject.name == "Sphere")
+        {
+            HP_Bar.value -= Time.deltaTime * 2;
+        }
+    }
 
 
 }
